@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="style.css" />
+		<title>Kryptologie</title>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+		<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+
+	</head>
+	<body>
+		<div class="wrapper">
+            <div class="container upper">
+                <div class="inputs">
+                    <input id="input" type="text" placeholder="Dies ist ein Klartext" maxlength="40"/>
+                    <input id="output" type="text" maxlength="40"></input>
+                </div>
+                <div class="btn">
+                    <button id="encrypt" onclick="Encrypt()" ><span class="material-symbols-outlined">lock</span></button>
+                </div>	
+            </div>
+
+            <div class="container lower">
+                <div class="code-wrapper">
+                    <d class="window">
+                        <div class="icons"><span></span></div>
+                        <div class="title">krebs.js</div>
+                        <pre class="lang-js"><code><div id="krebsCode"><span class="token keyword">function</span> Krebs<span class="token punctuation">(</span>out, txt<span class="token punctuation">) {</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> txt<span class="token punctuation">.</span>length - <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> i--<span class="token punctuation">) {</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>txt<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token punctuation">' ')</span> out<span class="token punctuation">.</span>value <span class="token operator">+=</span> txt<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></div><div id="teilweiserKrebsCode" style="display: none;"><span class="token keyword">function</span> TeilweiserKrebs<span class="token punctuation">(</span>out<span class="token punctuation">,</span> txt<span class="token punctuation">) {</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i = <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator"><</span> txt<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i++<span class="token punctuation">) {</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>txt<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> == <span class="token punctuation">' '</span> <span class="token operator">||</span> i <span class="token operator">==</span> txt<span class="token punctuation">.</span>length - <span class="token number">1</span><span class="token punctuation">) {</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> i<span class="token punctuation">;</span> j <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> j--<span class="token punctuation">) {</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>txt<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token punctuation">' ')</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+	out.value <span class="token operator">+=</span> txt<span class="token punctuation">[</span>j<span class="token punctuation">];</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></div><div id="gartenzaunCode" style="display: none;"><span class="token keyword">function</span> Gartenzaun<span class="token punctuation">(</span>out<span class="token punctuation">,</span> txt<span class="token punctuation">) {</span>
+  txt = txt.replace(<span class="token keyword">/\s/g</span><span class="token punctuation">, ' ');</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator"><</span> txt<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">+=</span> <span class="token number">2</span><span class="token punctuation">)</span> out<span class="token punctuation">.</span>value <span class="token operator">+=</span> txt<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator"><</span> txt<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">+=</span> <span class="token number">2</span><span class="token punctuation">)</span> out<span class="token punctuation">.</span>value <span class="token operator">+=</span> txt<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></div><div id="doppelterGartenzaunCode" style="display: none;">function DoppelterGartenzaun(out, txt) {
+	const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+	txt = txt.replace(/\s/g, '');
+
+	for (let i = 0; i < txt.length; i += 4) {
+		if (txt[i] !== undefined) {
+			out.value += txt[i];
+		}
+	}
+
+	let firstline = out.value.length;
+
+	let secondline = 0;
+	for (let i = 1; secondline < 2 * firstline; i += 2) {
+		secondline++;
+		if (txt[i] !== undefined) {
+			out.value += txt[i];
+		} else {
+			out.value += alphabet[Math.floor(Math.random() * alphabet.length)];
+		}
+	}
+
+	let thirdline = 0;
+	for (let i = 2; thirdline < firstline; i += 4) {
+		thirdline++;
+		if (txt[i] !== undefined) {
+			out.value += txt[i];
+		} else {
+			out.value += alphabet[Math.floor(Math.random() * alphabet.length)];
+		}
+	}
+}</div><div id="skytaleCode" style="display: none;">function Skytale(out, txt, key) {
+	const rodDiameter = key;
+
+	txt = txt.replace(/\s/g, '');
+	for (let i = 0; i < rodDiameter; i++) {
+		for (let j = i; j < txt.length; j += rodDiameter) {
+			out.value += txt[j];
+		}
+	}
+}</div></code></pre>
+                      </d>
+                </div>  
+            </div>       
+		</div>
+
+        <div class="list">
+            <ul>
+                <li class="item selected" id="krebs">Krebs</li>
+                <li class="item" id="teilweiserKrebs" style="padding-left: 30px;">Teilweiser Krebs</li>
+                <li class="item" id="gartenzaun">Gartenzaun</li>
+                <li class="item" id="doppelterGartenzaun" style="padding-left: 30px;">Doppelter Gartenzaun mit Blendern</li>
+                <li class="item" id="skytale">Skytale von Sparta</li>
+            </ul>
+        </div>
+
+        
+
+		<script src="script.js"></script>
+	</body>
+</html>
